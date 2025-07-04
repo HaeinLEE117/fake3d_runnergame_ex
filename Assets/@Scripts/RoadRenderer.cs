@@ -39,14 +39,14 @@ public class RoadRenderer : MonoBehaviour
             float t = ((float)i / roadLines.Count + timeOffset) % 1f;
 
             // 📍 Y 위치: 도로가 아래에서 위로 흐르도록 계산. Lerp값은 Camera Size에 비례
-            float y = Mathf.Lerp(-5f, 5f, t);
+            float y = Mathf.Lerp(-5f, 4f, t);
 
             // 🔍 크기 (원근감): 가까울수록 큼, 멀수록 작음
             float scale = Mathf.Lerp(1.5f, 0.1f, t);
 
             // 🎯 줄무늬의 위치와 크기 적용
             GameObject line = roadLines[i];
-            line.transform.localPosition = new Vector3(0, y, 0); // X=0으로 고정 (곡선 없음)
+            line.transform.localPosition = new Vector3(0, y, 0); // X=0으로 고정 
             line.transform.localScale = new Vector3(scale * roadWidth, scale, 1);
         }
     }
